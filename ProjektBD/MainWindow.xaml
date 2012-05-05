@@ -1,0 +1,22 @@
+﻿<Window x:Class="ProjektBD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="584" d:DesignWidth="653" SizeToContent="WidthAndHeight">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <DockPanel LastChildFill="False" Grid.Column="0" Height="531" HorizontalAlignment="Left" Margin="6,9,0,0" Name="dockPanel1" VerticalAlignment="Top" Width="222">
+            <StackPanel DockPanel.Dock="Top" Height="100" Name="stackPanel2" Width="200">
+                <Label Content="Zalogowany jako :" Height="28" Name="label1" HorizontalAlignment="Center"/>
+                <Label Content="Użytkownik" Height="28" Name="label2" HorizontalAlignment="Center"/>
+                <Label Content="(Wyloguj)" Height="28" Name="label3" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel  DockPanel.Dock="Bottom" Height="Auto" Name="stackPanel1" Width="Auto" >
+                <Label Content="Godzina" Height="Auto" Name="label4" Width="Auto" HorizontalAlignment="Center"/>
+                <Calendar DockPanel.Dock="Bottom" Height="170" Name="calendar1" Width="180" />
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>
