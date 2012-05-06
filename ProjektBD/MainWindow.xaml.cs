@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 
 //jakis testowy koment
@@ -24,6 +25,24 @@ namespace ProjektBD
         public MainWindow()
         {
             InitializeComponent();
+            string MyConString = "SERVER=localhost;" +
+                "DATABASE=projektBD;" +
+                "UID=root;" +
+                "PASSWORD=;";
+            MySqlConnection connection = new MySqlConnection(MyConString);
+            MySqlCommand command = connection.CreateCommand();
+            MySqlDataReader Reader;
+            command.CommandText = "select * from users";
+            connection.Open();
+            Reader = command.ExecuteReader();
+            while (Reader.Read())
+            {
+                string thisrow = "";
+                for (int i = 0; i < Reader.FieldCount; i++)
+                    thisrow += Reader.GetValue(i).ToString() + ",";
+                listBox1.Items.Add(thisrow);
+            }
+            connection.Close();
         }
     }
 }
