@@ -1,2 +1,7 @@
 */obj/*
 */bin/*
+*mysql/data/mysql*
+*mysql/data/performance_schema*
+*mysql/data/ib*
+*mysql/data/*.err
+*mysql/data/*.pid
