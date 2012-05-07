@@ -52,23 +52,11 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Page Include="ExecutiveAddNewRecruitment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ExecutiveButtonsControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ExecutiveCandidatePreview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -89,9 +77,6 @@
     </Compile>
     <Compile Include="ExecutiveButtonsControl.xaml.cs">
       <DependentUpon>ExecutiveButtonsControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ExecutiveCandidatePreview.xaml.cs">
-      <DependentUpon>ExecutiveCandidatePreview.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExecutiveModifyRecruitment.xaml.cs">
       <DependentUpon>ExecutiveModifyRecruitment.xaml</DependentUpon>

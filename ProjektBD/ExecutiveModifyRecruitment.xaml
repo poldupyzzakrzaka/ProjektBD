@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="ProjektBD.ExecutiveClassControl"
+﻿<UserControl x:Class="ProjektBD.ExecutiveModifyRecruitment"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
     <Grid>
-        <Label Content="jakis text" Height="28" HorizontalAlignment="Left" Margin="110,125,0,0" Name="label1" VerticalAlignment="Top" />
+        <Label Content="exec mod recru" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Name="label1" VerticalAlignment="Center" VerticalContentAlignment="Center" />
     </Grid>
 </UserControl>

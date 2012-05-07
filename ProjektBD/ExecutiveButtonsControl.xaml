@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" d:DesignHeight="84" d:DesignWidth="166">
     <Grid>
-        <Button Content="Modifikuj rekrutacje" Height="23" HorizontalAlignment="Left" Name="buttonEditRecruitments" VerticalAlignment="Top" Width="160" Margin="0,29,0,0" />
-        <Button Content="Podgląd kandydatów" Height="23" HorizontalAlignment="Left" Margin="0,58,0,0" Name="buttonCandidatePreview" VerticalAlignment="Top" Width="160" />
+        <Button Content="Modifikuj rekrutacje" Height="23" HorizontalAlignment="Left" Name="buttonEditRecruitments" VerticalAlignment="Top" Width="160" Margin="0,29,0,0" Click="buttonEditRecruitments_Click" />
+        <Button Content="Podgląd kandydatów" Height="23" HorizontalAlignment="Left" Margin="0,58,0,0" Name="buttonCandidatePreview" VerticalAlignment="Top" Width="160" Click="buttonCandidatePreview_Click" />
         <Button Content="Dodaj nową rekrutacje" Height="23" HorizontalAlignment="Left" Name="buttonAddNewRec" VerticalAlignment="Top" Width="160" Click="buttonAddNewRec_Click" />
     </Grid>
 </UserControl>

@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace ProjektBD
 {
     /// <summary>
-    /// Interaction logic for ExecutiveClassControl.xaml
+    /// Interaction logic for ExecutiveCandidatePreview.xaml
     /// </summary>
-    public partial class ExecutiveClassControl : UserControl
+    public partial class ExecutiveCandidatePreview : UserControl
     {
-        public ExecutiveClassControl()
+        public ExecutiveCandidatePreview()
         {
             InitializeComponent();
         }

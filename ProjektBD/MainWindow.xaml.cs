@@ -84,5 +84,28 @@ namespace ProjektBD
             }
             RefreshLeftButtonMenu();
         }
+
+        private void executiveButtonsControl1_ExecutiveMenuButtonClickedEvent(object sender, ExecutiveMenuButtonClickedEventArgs fe)
+        {
+            switch (fe.buttonId)
+            {
+                case 1:
+                    executiveModifyRecruitment1.Visibility = Visibility.Collapsed;
+                    executiveCandidatePreview1.Visibility = Visibility.Collapsed;
+                    executiveAddNewRecruitment1.Visibility = Visibility.Visible;
+                    break;
+                case 2:
+                    executiveModifyRecruitment1.Visibility = Visibility.Visible;
+                    executiveCandidatePreview1.Visibility = Visibility.Collapsed;
+                    executiveAddNewRecruitment1.Visibility = Visibility.Collapsed;
+                    break;
+                case 3:
+                    executiveModifyRecruitment1.Visibility = Visibility.Collapsed;
+                    executiveCandidatePreview1.Visibility = Visibility.Visible;
+                    executiveAddNewRecruitment1.Visibility = Visibility.Collapsed;
+                    break;
+            }
+            
+        }
     }
 }
