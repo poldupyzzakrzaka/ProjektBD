@@ -23,7 +23,7 @@ namespace ProjektBD
     public partial class MainWindow : Window
     {
         int userLevel = -1; // -1 - nie zalogowany
-
+        int userId = -1;
         public MainWindow()
         {
             InitializeComponent();
@@ -36,19 +36,29 @@ namespace ProjektBD
             switch (userLevel)
             {
                 //nie zalogowany
-                case -1: break;
+                case -1: 
+                    executiveButtonsControl1.Visibility = Visibility.Collapsed;
+                    break;
                 //gosc - tak sobie, raczej nie uzywany
-                case 0: break;
+                case 0: 
+                    break;
                 //asystentka
-                case 1: break;
+                case 1: 
+                    break;
                 //kierownik
-                case 2: break;
+                case 2: 
+                    executiveButtonsControl1.Visibility = Visibility.Visible;
+                    break;
                 //specjalista
-                case 3: break;
+                case 3: 
+                    break;
                 //administrator
-                case 4: break;
+                case 4: 
+                    break;
                 //deweloper - posiada dostep do wszystkiego
-                case 5: break;
+                case 5:
+                    executiveButtonsControl1.Visibility = Visibility.Visible;
+                    break;
             }
         }
 
@@ -61,8 +71,9 @@ namespace ProjektBD
             labelUserLevel.Visibility = Visibility.Visible;
 
             labelUserNameSurname.Content = fe.userName + " " + fe.userSurname;
-
-            switch (fe.userLevel)
+            userLevel = fe.userLevel;
+            userId = fe.userId;
+            switch (userLevel)
             {
                 case 0: labelUserLevel.Content = "Gość"; break;
                 case 1: labelUserLevel.Content = "Asysten(ka)"; break;
@@ -71,6 +82,7 @@ namespace ProjektBD
                 case 4: labelUserLevel.Content = "Administrator"; break;
                 case 5: labelUserLevel.Content = "Deweloper"; break; 
             }
+            RefreshLeftButtonMenu();
         }
     }
 }

@@ -15,19 +15,13 @@ using System.Windows.Shapes;
 namespace ProjektBD
 {
     /// <summary>
-    /// Interaction logic for ExecutiveButtonsControl.xaml
+    /// Interaction logic for ExecutiveClassControl.xaml
     /// </summary>
-    public partial class ExecutiveButtonsControl : UserControl
+    public partial class ExecutiveClassControl : UserControl
     {
-        public ExecutiveButtonsControl()
+        public ExecutiveClassControl()
         {
             InitializeComponent();
-        }
-
-        private void buttonAddNewRec_Click(object sender, RoutedEventArgs e)
-        {
-            ExecutiveClassControl nowy = new ExecutiveClassControl();
-            nowy.Visibility = Visibility.Visible;
         }
     }
 }

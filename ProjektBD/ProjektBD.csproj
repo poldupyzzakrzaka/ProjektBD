@@ -60,6 +60,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ExecutiveClassControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -74,6 +78,9 @@
     </Compile>
     <Compile Include="ExecutiveButtonsControl.xaml.cs">
       <DependentUpon>ExecutiveButtonsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExecutiveClassControl.xaml.cs">
+      <DependentUpon>ExecutiveClassControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginControl.xaml.cs">
       <DependentUpon>LoginControl.xaml</DependentUpon>
