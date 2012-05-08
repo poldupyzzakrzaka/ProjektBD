@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" d:DesignHeight="84" d:DesignWidth="166">
+             mc:Ignorable="d" d:DesignHeight="331" d:DesignWidth="199">
     <Grid>
-        <Button Content="Modifikuj rekrutacje" Height="23" HorizontalAlignment="Stretch" Name="buttonEditRecruitments" VerticalAlignment="Top" Width="Auto" Margin="0,29,0,0" Click="buttonEditRecruitments_Click" />
-        <Button Content="Podgląd kandydatów" Height="23" HorizontalAlignment="Stretch" Margin="0,58,0,0" Name="buttonCandidatePreview" VerticalAlignment="Top" Width="Auto" Click="buttonCandidatePreview_Click" />
-        <Button Content="Dodaj nową rekrutacje" Height="23" HorizontalAlignment="Stretch" Name="buttonAddNewRec" VerticalAlignment="Top" Width="Auto" Click="buttonAddNewRec_Click" />
+        <StackPanel>
+            <Button Content="Modifikuj rekrutacje" Height="23" HorizontalAlignment="Stretch" Name="buttonEditRecruitments" VerticalAlignment="Top" Width="Auto" Click="buttonEditRecruitments_Click" Margin="0,5" />
+            <Button Content="Podgląd kandydatów" Height="23" HorizontalAlignment="Stretch" Name="buttonCandidatePreview" VerticalAlignment="Top" Width="Auto" Click="buttonCandidatePreview_Click" Margin="0,5" />
+            <Button Content="Dodaj nową rekrutacje" Height="23" HorizontalAlignment="Stretch" Name="buttonAddNewRec" VerticalAlignment="Top" Width="Auto" Click="buttonAddNewRec_Click" Margin="0,5" />
+        </StackPanel>
     </Grid>
 </UserControl>

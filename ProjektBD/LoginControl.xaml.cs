@@ -83,6 +83,14 @@ namespace ProjektBD
         {
             LogIn(textBoxLogin.Text, textBoxPassword.Password);
         }
+
+        private void UserControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                buttonLoginConfirm_Click(sender, e);
+            }
+        }
     }
 
     public class LoggedInEventArgs : EventArgs

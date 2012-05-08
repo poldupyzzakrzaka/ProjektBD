@@ -14,11 +14,12 @@
             <ColumnDefinition Width="238" />
             <ColumnDefinition Width="1676*" />
         </Grid.ColumnDefinitions>
-        <ProjectControls:ExecutiveModifyRecruitment Grid.Column="1" Grid.RowSpan="4" Height="Auto" HorizontalAlignment="Stretch" x:Name="executiveModifyRecruitment1" VerticalAlignment="Stretch" Width="Auto" Visibility="Collapsed" IsHitTestVisible="False" />
-        <ProjectControls:ExecutiveCandidatePreview Grid.Column="1" HorizontalAlignment="Stretch" x:Name="executiveCandidatePreview1" VerticalAlignment="Stretch" Height="Auto" Grid.RowSpan="4" Width="Auto" Visibility="Collapsed" IsHitTestVisible="False" />
-        <ProjectControls:ExecutiveAddNewRecruitment Grid.RowSpan="4" x:Name="executiveAddNewRecruitment1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Visibility="Collapsed" Grid.Column="1" Height="Auto" Width="Auto" />
-        <ProjectControls:LoginControl x:Name="LoginControl1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" LoggedInEvent="LoginControl1_LoggedInEvent" MinWidth="350" MinHeight="150" Grid.Column="0" FlowDirection="LeftToRight" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="4"></ProjectControls:LoginControl>
-        <ProjectControls:ExecutiveButtonsControl x:Name="executiveButtonsControl1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" Grid.Row="1" Visibility="Collapsed" ExecutiveMenuButtonClickedEvent="executiveButtonsControl1_ExecutiveMenuButtonClickedEvent" Margin="10,0" />
+        <Grid Grid.ColumnSpan="1" Grid.Column="1" Grid.RowSpan="4" Name="GridPanelFunctions" Visibility="Collapsed" VerticalAlignment="Top">
+            <ProjectControls:ExecutiveModifyRecruitment Grid.Column="1" Grid.RowSpan="4" Height="Auto" HorizontalAlignment="Stretch" x:Name="executiveModifyRecruitment1" VerticalAlignment="Stretch" Width="Auto" Visibility="Collapsed" IsHitTestVisible="False" />
+            <ProjectControls:ExecutiveCandidatePreview Grid.Column="1" HorizontalAlignment="Stretch" x:Name="executiveCandidatePreview1" VerticalAlignment="Stretch" Height="Auto" Grid.RowSpan="4" Width="Auto" Visibility="Collapsed" IsHitTestVisible="False" />
+            <ProjectControls:ExecutiveAddNewRecruitment Grid.RowSpan="4" x:Name="executiveAddNewRecruitment1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Visibility="Collapsed" Grid.Column="1" Height="Auto" Width="Auto" />
+        </Grid>
+        <ProjectControls:LoginControl x:Name="LoginControl1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" LoggedInEvent="LoginControl1_LoggedInEvent" MinWidth="350" MinHeight="150" Grid.Column="0" FlowDirection="LeftToRight" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="4"></ProjectControls:LoginControl>
         <StackPanel Name="stackPanelLoginInfo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Label Content="Zalogowany jako :" Height="28" Name="labelLoggedAs" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Collapsed" />
             <Label Content="Nie zalogowany!" Height="28" HorizontalContentAlignment="Center" Name="labelNotLoggedIn" VerticalContentAlignment="Center" Visibility="Visible" />
@@ -30,5 +31,9 @@
             <Calendar DockPanel.Dock="Bottom" Height="177" Name="calendar1" Width="191" />
         </StackPanel>
         <Button Content="(Wyloguj)" HorizontalContentAlignment="Center" Name="ButtonLogOut" VerticalContentAlignment="Center" Visibility="Collapsed" Grid.Row="3" Padding="0" Click="labelLogOut_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,10" />
+        <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" Name="stackPanel2" VerticalAlignment="Stretch">
+            <ProjectControls:ExecutiveButtonsControl x:Name="executiveButtonsControl1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" Visibility="Collapsed" ExecutiveMenuButtonClickedEvent="executiveButtonsControl1_ExecutiveMenuButtonClickedEvent" Margin="20,0" />
+            <ProjectControls:AsistantButtonsControl x:Name="asistantButtonsControl1" Margin="20,0" Visibility="Collapsed" />
+        </StackPanel>
     </Grid>
 </Window>

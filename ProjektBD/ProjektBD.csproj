@@ -68,6 +68,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+	<Page Include="AsistantButtonsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ExecutiveCandidatePreview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,6 +93,9 @@
     </Compile>
     <Compile Include="ExecutiveButtonsControl.xaml.cs">
       <DependentUpon>ExecutiveButtonsControl.xaml</DependentUpon>
+    </Compile>
+	<Compile Include="AsistantButtonsControl.xaml.cs">
+      <DependentUpon>AsistantButtonsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExecutiveCandidatePreview.xaml.cs">
       <DependentUpon>ExecutiveCandidatePreview.xaml</DependentUpon>
@@ -129,7 +136,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

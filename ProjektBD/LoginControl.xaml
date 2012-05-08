@@ -3,12 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" d:DesignHeight="149" d:DesignWidth="263">
+             mc:Ignorable="d" d:DesignHeight="208" d:DesignWidth="212" KeyDown="UserControl_KeyDown">
     <Grid>
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,34,0,0" Name="textBoxLogin" VerticalAlignment="Top" Width="239" Text="kierownik" />
-        <Label Content="Login" Height="28" Margin="12,12,70,0" Name="labelLogin" VerticalAlignment="Top" />
-        <Label Content="Hasło" Height="28" HorizontalAlignment="Left" Margin="12,54,0,0" Name="labelPassword" VerticalAlignment="Top" />
-        <PasswordBox Height="23" HorizontalAlignment="Left" Margin="12,77,0,0" Name="textBoxPassword" VerticalAlignment="Top" Width="239" Password="haslo1" />
-        <Button Content="Zaloguj" Height="23" HorizontalAlignment="Left" Margin="12,106,0,0" Name="buttonLoginConfirm" VerticalAlignment="Top" Width="239" Click="buttonLoginConfirm_Click" />
+        <StackPanel>
+            <Label Content="Login" Name="labelLogin" />
+            <TextBox Name="textBoxLogin" Text="kierownik" Grid.ColumnSpan="2" Margin="0,0,0,5" />
+            <Label Content="Hasło" Name="labelPassword" />
+            <PasswordBox HorizontalAlignment="Stretch" Name="textBoxPassword" VerticalAlignment="Top" Password="haslo1" Grid.ColumnSpan="2" Margin="0,0,0,5" />
+            <Button Content="Zaloguj" Height="Auto" HorizontalAlignment="Stretch" Name="buttonLoginConfirm" VerticalAlignment="Top" Width="Auto" Click="buttonLoginConfirm_Click" Grid.ColumnSpan="2" />
+        </StackPanel>
     </Grid>
 </UserControl>
