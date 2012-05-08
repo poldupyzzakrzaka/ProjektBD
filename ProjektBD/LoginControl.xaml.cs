@@ -34,7 +34,7 @@ namespace ProjektBD
             InitializeComponent();
         }
 
-        public void Zaloguj(String name, String password)
+        public void LogIn(String name, String password)
         {
             if (name.Length > 0 && password.Length > 0)
             {
@@ -68,9 +68,20 @@ namespace ProjektBD
             }
         }
 
+        public void LogOut()
+        {
+            LoggedInEventArgs LoggedInArgs = new LoggedInEventArgs(-1, -1, "", "");
+            userId = -1;
+            userLevel = -1;
+            userName = "";
+            userSurname = "";
+            Visibility = Visibility.Visible;
+            LoggedInEvent(this, LoggedInArgs);
+        }
+
         private void buttonLoginConfirm_Click(object sender, RoutedEventArgs e)
         {
-            Zaloguj(textBoxLogin.Text, textBoxPassword.Password);
+            LogIn(textBoxLogin.Text, textBoxPassword.Password);
         }
     }
 

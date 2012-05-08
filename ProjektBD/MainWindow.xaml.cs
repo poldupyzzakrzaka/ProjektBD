@@ -67,7 +67,7 @@ namespace ProjektBD
             labelNotLoggedIn.Visibility = Visibility.Collapsed;
             labelLoggedAs.Visibility = Visibility.Visible;
             labelUserNameSurname.Visibility = Visibility.Visible;
-            labelLogOut.Visibility = Visibility.Visible;
+            ButtonLogOut.Visibility = Visibility.Visible;
             labelUserLevel.Visibility = Visibility.Visible;
 
             labelUserNameSurname.Content = fe.userName + " " + fe.userSurname;
@@ -75,12 +75,25 @@ namespace ProjektBD
             userId = fe.userId;
             switch (userLevel)
             {
-                case 0: labelUserLevel.Content = "Gość"; break;
-                case 1: labelUserLevel.Content = "Asysten(ka)"; break;
-                case 2: labelUserLevel.Content = "Kierownik"; break;
-                case 3: labelUserLevel.Content = "Specjalista"; break;
-                case 4: labelUserLevel.Content = "Administrator"; break;
-                case 5: labelUserLevel.Content = "Deweloper"; break; 
+                case -1:
+                    labelNotLoggedIn.Visibility = Visibility.Visible;
+                    labelLoggedAs.Visibility = Visibility.Collapsed;
+                    labelUserNameSurname.Visibility = Visibility.Collapsed;
+                    ButtonLogOut.Visibility = Visibility.Collapsed;
+                    labelUserLevel.Visibility = Visibility.Collapsed;
+                    break;
+                case 0: labelUserLevel.Content = "Gość"; 
+                    break;
+                case 1: labelUserLevel.Content = "Asysten(ka)"; 
+                    break;
+                case 2: labelUserLevel.Content = "Kierownik"; 
+                    break;
+                case 3: labelUserLevel.Content = "Specjalista"; 
+                    break;
+                case 4: labelUserLevel.Content = "Administrator"; 
+                    break;
+                case 5: labelUserLevel.Content = "Deweloper"; 
+                    break; 
             }
             RefreshLeftButtonMenu();
         }
@@ -106,6 +119,11 @@ namespace ProjektBD
                     break;
             }
             
+        }
+
+        private void labelLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            LoginControl1.LogOut();
         }
     }
 }

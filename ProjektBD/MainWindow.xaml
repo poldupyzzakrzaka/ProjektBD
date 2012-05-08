@@ -5,8 +5,8 @@
         Title="MainWindow" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Width="{StaticResource {x:Static SystemParameters.MaximizedPrimaryScreenWidthKey}}" Height="{StaticResource {x:Static SystemParameters.MaximizedPrimaryScreenHeightKey}}" WindowState="Maximized" WindowStyle="None" ResizeMode="NoResize" Background="Gray">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="112*" />
-            <RowDefinition Height="630*" />
+            <RowDefinition Height="132*" />
+            <RowDefinition Height="610*" />
             <RowDefinition Height="216*" />
             <RowDefinition Height="59*" />
         </Grid.RowDefinitions>
@@ -18,7 +18,7 @@
         <ProjectControls:ExecutiveCandidatePreview Grid.Column="1" HorizontalAlignment="Stretch" x:Name="executiveCandidatePreview1" VerticalAlignment="Stretch" Height="Auto" Grid.RowSpan="4" Width="Auto" Visibility="Collapsed" IsHitTestVisible="False" />
         <ProjectControls:ExecutiveAddNewRecruitment Grid.RowSpan="4" x:Name="executiveAddNewRecruitment1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Visibility="Collapsed" Grid.Column="1" Height="Auto" Width="Auto" />
         <ProjectControls:LoginControl x:Name="LoginControl1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" LoggedInEvent="LoginControl1_LoggedInEvent" MinWidth="350" MinHeight="150" Grid.Column="0" FlowDirection="LeftToRight" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="4"></ProjectControls:LoginControl>
-        <ProjectControls:ExecutiveButtonsControl x:Name="executiveButtonsControl1" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Grid.Row="1" Visibility="Collapsed" ExecutiveMenuButtonClickedEvent="executiveButtonsControl1_ExecutiveMenuButtonClickedEvent" />
+        <ProjectControls:ExecutiveButtonsControl x:Name="executiveButtonsControl1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" Grid.Row="1" Visibility="Collapsed" ExecutiveMenuButtonClickedEvent="executiveButtonsControl1_ExecutiveMenuButtonClickedEvent" Margin="10,0" />
         <StackPanel Name="stackPanelLoginInfo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Label Content="Zalogowany jako :" Height="28" Name="labelLoggedAs" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Collapsed" />
             <Label Content="Nie zalogowany!" Height="28" HorizontalContentAlignment="Center" Name="labelNotLoggedIn" VerticalContentAlignment="Center" Visibility="Visible" />
@@ -29,6 +29,6 @@
             <Label Content="Godzina" Height="Auto" Name="label4" Width="Auto" HorizontalAlignment="Center" />
             <Calendar DockPanel.Dock="Bottom" Height="177" Name="calendar1" Width="191" />
         </StackPanel>
-        <Label Content="(wyloguj)" HorizontalContentAlignment="Center" Name="labelLogOut" VerticalContentAlignment="Center" Visibility="Collapsed" Grid.Row="3" Padding="0" />
+        <Button Content="(Wyloguj)" HorizontalContentAlignment="Center" Name="ButtonLogOut" VerticalContentAlignment="Center" Visibility="Collapsed" Grid.Row="3" Padding="0" Click="labelLogOut_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,10" />
     </Grid>
 </Window>
