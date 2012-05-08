@@ -31,7 +31,7 @@
             <Calendar DockPanel.Dock="Bottom" Height="177" Name="calendar1" Width="191" />
         </StackPanel>
         <Button Content="(Wyloguj)" HorizontalContentAlignment="Center" Name="ButtonLogOut" VerticalContentAlignment="Center" Visibility="Collapsed" Grid.Row="3" Padding="0" Click="labelLogOut_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,10" />
-        <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" Name="stackPanel2" VerticalAlignment="Stretch">
+        <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" Name="stackPanelLeftButtons" VerticalAlignment="Stretch">
             <ProjectControls:ExecutiveButtonsControl x:Name="executiveButtonsControl1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" Visibility="Collapsed" ExecutiveMenuButtonClickedEvent="executiveButtonsControl1_ExecutiveMenuButtonClickedEvent" Margin="20,0" />
             <ProjectControls:AsistantButtonsControl x:Name="asistantButtonsControl1" Margin="20,0" Visibility="Collapsed" />
         </StackPanel>
