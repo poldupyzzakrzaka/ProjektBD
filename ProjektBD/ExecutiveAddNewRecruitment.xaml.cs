@@ -55,5 +55,15 @@ namespace ProjektBD
             connection.Close();
             
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            //MySqlConnection connection = new MySqlConnection(MyConString);
+            //MySqlCommand command = connection.CreateCommand();
+            //MySqlDataw
+            //command.CommandText = "select * from specialization_type";
+            //connection.Open();
+
+        }
     }
 }
