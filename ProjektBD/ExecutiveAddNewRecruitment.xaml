@@ -21,7 +21,7 @@
                         <ColumnDefinition Width="50*" />
                     </Grid.ColumnDefinitions>    
                 </Grid>
-                <Button Content="Dodaj" Name="button1" HorizontalAlignment="Right" MinWidth="70" />
+                <Button Content="Dodaj" Name="button1" HorizontalAlignment="Right" MinWidth="70"/>
             </StackPanel>
         </Grid>
     </Grid>
