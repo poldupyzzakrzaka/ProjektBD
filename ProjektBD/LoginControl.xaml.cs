@@ -72,7 +72,10 @@ namespace ProjektBD
             userName = "";
             userSurname = "";
             Visibility = Visibility.Visible;
-            ((MainWindow)Application.Current.MainWindow).asistantButtonsControl1.DeleteItemsAddedToGrid();
+            //zadbanie o usuniecie przyciskow
+            ((MainWindow)Application.Current.MainWindow).stackPanelLeftButtons.Children.Clear();
+            //zadbanie o wyczyszczenie dodanych elementów do GridPanelFunctions
+            ((MainWindow)Application.Current.MainWindow).GridPanelFunctions.Children.Clear();
             LoggedInEvent(this, LoggedInArgs);
         }
 

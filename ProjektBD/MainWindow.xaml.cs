@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using ProjektBD.Asistant;
+using ProjektBD.Executive;
 using ProjektBD.Database;
 
 //jakis testowy koment
@@ -33,23 +34,9 @@ namespace ProjektBD
             RefreshLeftButtonMenu();
             db = DBConnection.Instance;
         }
-
-        //zeby nie pisac w kolko chowania lewych przyciskow
-        public void HideAllLeftButtons()
-        {
-            executiveButtonsControl1.Visibility = Visibility.Collapsed;
-            asistantButtonsControl1.Visibility = Visibility.Collapsed;
-        }
-
-        public void ShowAllLeftButtons()
-        {
-            executiveButtonsControl1.Visibility = Visibility.Visible;
-            asistantButtonsControl1.Visibility = Visibility.Visible;
-        }
-
+        
         public void RefreshLeftButtonMenu()
         {
-            HideAllLeftButtons();
             //tu ustawiamy wszystkie przyciski dla konkretnego zalogowanego typa
             switch (userLevel)
             {
@@ -61,11 +48,13 @@ namespace ProjektBD
                     break;
                 //asystentka
                 case 1:
-                    asistantButtonsControl1.Visibility = Visibility.Visible;
+                    AsistantButtonsControl AsistantButtons = new AsistantButtonsControl();
+                    ((MainWindow)Application.Current.MainWindow).stackPanelLeftButtons.Children.Add(AsistantButtons);
                     break;
                 //kierownik
                 case 2: 
-                    executiveButtonsControl1.Visibility = Visibility.Visible;
+                    ExecutiveButtonsControl ExecutiveButtons = new ExecutiveButtonsControl();
+                    ((MainWindow)Application.Current.MainWindow).stackPanelLeftButtons.Children.Add(ExecutiveButtons);
                     break;
                 //specjalista
                 case 3: 
@@ -75,7 +64,6 @@ namespace ProjektBD
                     break;
                 //deweloper - posiada dostep do wszystkiego
                 case 5:
-                    ShowAllLeftButtons();
                     break;
             }
         }
@@ -126,28 +114,6 @@ namespace ProjektBD
                     break; 
             }
             RefreshLeftButtonMenu();
-        }
-
-        private void executiveButtonsControl1_ExecutiveMenuButtonClickedEvent(object sender, ExecutiveMenuButtonClickedEventArgs fe)
-        {
-            switch (fe.buttonId)
-            {
-                case 1:
-                    executiveModifyRecruitment1.Visibility = Visibility.Collapsed;
-                    executiveCandidatePreview1.Visibility = Visibility.Collapsed;
-                    executiveAddNewRecruitment1.Visibility = Visibility.Visible;
-                    break;
-                case 2:
-                    executiveModifyRecruitment1.Visibility = Visibility.Visible;
-                    executiveCandidatePreview1.Visibility = Visibility.Collapsed;
-                    executiveAddNewRecruitment1.Visibility = Visibility.Collapsed;
-                    break;
-                case 3:
-                    executiveModifyRecruitment1.Visibility = Visibility.Collapsed;
-                    executiveCandidatePreview1.Visibility = Visibility.Visible;
-                    executiveAddNewRecruitment1.Visibility = Visibility.Collapsed;
-                    break;
-            }
         }
 
         private void labelLogOut_Click(object sender, RoutedEventArgs e)

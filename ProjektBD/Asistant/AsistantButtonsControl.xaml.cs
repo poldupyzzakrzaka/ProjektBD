@@ -28,32 +28,23 @@ namespace ProjektBD.Asistant
         public AsistantButtonsControl()
         {
             InitializeComponent();
-            gridDisplay = GetMainWindowGridHandle();
+            gridDisplay = ((MainWindow)Application.Current.MainWindow).GridPanelFunctions;
         }
 
-        private void addToPanelWithTracking(UIElement elem)
-        {
-            gridDisplay.Children.Add(elem);
-            MonitorAdd(elem);
-        }
-
-        private Grid GetMainWindowGridHandle()
-        {
-            return ((MainWindow)Application.Current.MainWindow).GridPanelFunctions;
-        }
-        
         private void buttonAddCandidate_Click(object sender, RoutedEventArgs e)
         {
-            MonitorDelete();
+            if (gridDisplay.Children.Count > 0)
+                gridDisplay.Children.Clear();
             AsistantAddCandidate addCan = new AsistantAddCandidate();
-            addToPanelWithTracking(addCan);
+            gridDisplay.Children.Add(addCan);
         }
 
         private void buttonModifyCandidate_Click(object sender, RoutedEventArgs e)
         {
-            MonitorDelete();
+            if (gridDisplay.Children.Count > 0)
+                gridDisplay.Children.Clear();
             AsistantModifyCandidate modifyCan = new AsistantModifyCandidate();
-            addToPanelWithTracking(modifyCan);
+            gridDisplay.Children.Add(modifyCan);
         }
 
         private void MonitorAdd(Object obj)
@@ -61,31 +52,21 @@ namespace ProjektBD.Asistant
             objRef = obj;
         }
 
-        private void MonitorDelete()
-        {
-            if (objRef != null)
-                gridDisplay.Children.Remove(objRef as UIElement);
-        }
-
         private void buttonSchedule_Click(object sender, RoutedEventArgs e)
         {
-            MonitorDelete();
+            if (gridDisplay.Children.Count > 0)
+                gridDisplay.Children.Clear();
             AsistantSchedule schedule = new AsistantSchedule();
-            addToPanelWithTracking(schedule);
+            gridDisplay.Children.Add(schedule);
         }
 
         private void buttonDeleteCandidate_Click(object sender, RoutedEventArgs e)
         {
-            MonitorDelete();
-            AsistantDeleteCandidate schedule = new AsistantDeleteCandidate();
-            addToPanelWithTracking(schedule);
+            if (gridDisplay.Children.Count > 0)
+                gridDisplay.Children.Clear();
+            AsistantDeleteCandidate delCan = new AsistantDeleteCandidate();
+            gridDisplay.Children.Add(delCan);
         }
-
-        public void DeleteItemsAddedToGrid()
-        {
-            MonitorDelete();
-        }
-
 
     }
 }

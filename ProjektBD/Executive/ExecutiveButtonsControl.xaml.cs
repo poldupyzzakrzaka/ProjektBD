@@ -13,49 +13,45 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 
-namespace ProjektBD
+namespace ProjektBD.Executive
 {
     /// <summary>
     /// Interaction logic for ExecutiveButtonsControl.xaml
     /// </summary>
     public partial class ExecutiveButtonsControl : UserControl
     {
-        const int AddNewRec = 1;
-        const int EditRec = 2;
-        const int CandidPrev = 3;
-
-        public delegate void ExecutiveMenuButtonClickedEventHandler(object sender, ExecutiveMenuButtonClickedEventArgs fe);
-        public event ExecutiveMenuButtonClickedEventHandler ExecutiveMenuButtonClickedEvent;
+        //uchwyt do MainWindow.GridPanelFunctions alias
+        private Grid gridDisplay;
 
         public ExecutiveButtonsControl()
         {
             InitializeComponent();
+            gridDisplay = ((MainWindow)Application.Current.MainWindow).GridPanelFunctions;
         }
 
         private void buttonAddNewRec_Click(object sender, RoutedEventArgs e)
         {
-            ExecutiveMenuButtonClickedEvent(this, new ExecutiveMenuButtonClickedEventArgs(AddNewRec));
+            if (gridDisplay.Children.Count > 0)
+                gridDisplay.Children.Clear();
+            ExecutiveAddNewRecruitment addRec = new ExecutiveAddNewRecruitment();
+            gridDisplay.Children.Add(addRec);
         }
 
         private void buttonEditRecruitments_Click(object sender, RoutedEventArgs e)
         {
-            ExecutiveMenuButtonClickedEvent(this, new ExecutiveMenuButtonClickedEventArgs(EditRec));
+            if (gridDisplay.Children.Count > 0)
+                gridDisplay.Children.Clear();
+            ExecutiveModifyRecruitment modifyCan = new ExecutiveModifyRecruitment();
+            gridDisplay.Children.Add(modifyCan);
         }
 
         private void buttonCandidatePreview_Click(object sender, RoutedEventArgs e)
         {
-            ExecutiveMenuButtonClickedEvent(this, new ExecutiveMenuButtonClickedEventArgs(CandidPrev));
+            if (gridDisplay.Children.Count > 0)
+                gridDisplay.Children.Clear();
+            ExecutiveCandidatePreview canPre = new ExecutiveCandidatePreview();
+            gridDisplay.Children.Add(canPre);
         }
 
-
-    }
-
-    public class ExecutiveMenuButtonClickedEventArgs : RoutedEventArgs
-    {
-        public ExecutiveMenuButtonClickedEventArgs(int _buttonId)
-        {
-            buttonId = _buttonId;
-        }
-        public int buttonId;
     }
 }

@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using ProjektBD.Database;
 
-namespace ProjektBD
+namespace ProjektBD.Executive
 {
     /// <summary>
     /// Interaction logic for ExecutiveAddNewRecruitment.xaml

@@ -81,19 +81,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ExecutiveAddNewRecruitment.xaml">
+    <Page Include="Executive\ExecutiveAddNewRecruitment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ExecutiveButtonsControl.xaml">
+    <Page Include="Executive\ExecutiveButtonsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ExecutiveCandidatePreview.xaml">
+    <Page Include="Executive\ExecutiveCandidatePreview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ExecutiveModifyRecruitment.xaml">
+    <Page Include="Executive\ExecutiveModifyRecruitment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -121,16 +121,16 @@
       <DependentUpon>AsistantSchedule.xaml</DependentUpon>
     </Compile>
     <Compile Include="Database\DBConnection.cs" />
-    <Compile Include="ExecutiveAddNewRecruitment.xaml.cs">
+    <Compile Include="Executive\ExecutiveAddNewRecruitment.xaml.cs">
       <DependentUpon>ExecutiveAddNewRecruitment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ExecutiveButtonsControl.xaml.cs">
+    <Compile Include="Executive\ExecutiveButtonsControl.xaml.cs">
       <DependentUpon>ExecutiveButtonsControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ExecutiveCandidatePreview.xaml.cs">
+    <Compile Include="Executive\ExecutiveCandidatePreview.xaml.cs">
       <DependentUpon>ExecutiveCandidatePreview.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ExecutiveModifyRecruitment.xaml.cs">
+    <Compile Include="Executive\ExecutiveModifyRecruitment.xaml.cs">
       <DependentUpon>ExecutiveModifyRecruitment.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginControl.xaml.cs">
