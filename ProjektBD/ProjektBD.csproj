@@ -60,15 +60,31 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Asistant\AsistantAddCandidate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Asistant\AsistantButtonsControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Asistant\AsistantDeleteCandidate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Asistant\AsistantModifyCandidate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Asistant\AsistantSchedule.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ExecutiveAddNewRecruitment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ExecutiveButtonsControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-	<Page Include="AsistantButtonsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,14 +104,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Asistant\AsistantAddCandidate.xaml.cs">
+      <DependentUpon>AsistantAddCandidate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Asistant\AsistantButtonsControl.xaml.cs">
+      <DependentUpon>AsistantButtonsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Asistant\AsistantDeleteCandidate.xaml.cs">
+      <DependentUpon>AsistantDeleteCandidate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Asistant\AsistantModifyCandidate.xaml.cs">
+      <DependentUpon>AsistantModifyCandidate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Asistant\AsistantSchedule.xaml.cs">
+      <DependentUpon>AsistantSchedule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ExecutiveAddNewRecruitment.xaml.cs">
       <DependentUpon>ExecutiveAddNewRecruitment.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExecutiveButtonsControl.xaml.cs">
       <DependentUpon>ExecutiveButtonsControl.xaml</DependentUpon>
-    </Compile>
-	<Compile Include="AsistantButtonsControl.xaml.cs">
-      <DependentUpon>AsistantButtonsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExecutiveCandidatePreview.xaml.cs">
       <DependentUpon>ExecutiveCandidatePreview.xaml</DependentUpon>
