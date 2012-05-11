@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using ProjektBD.Asistant;
+using ProjektBD.Database;
 
 //jakis testowy koment
 namespace ProjektBD
@@ -24,10 +25,13 @@ namespace ProjektBD
     {
         int userLevel = -1; // -1 - nie zalogowany
         int userId = -1;
+        private DBConnection db;
+
         public MainWindow()
         {
             InitializeComponent();
             RefreshLeftButtonMenu();
+            db = DBConnection.Instance;
         }
 
         //zeby nie pisac w kolko chowania lewych przyciskow

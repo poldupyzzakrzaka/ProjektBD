@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
+using ProjektBD.Database;
 
 namespace ProjektBD
 {
@@ -24,15 +25,10 @@ namespace ProjektBD
         {
             InitializeComponent();
 
-            string MyConString = "SERVER=localhost;" +
-                "DATABASE=projektBD;" +
-                "UID=root;" +
-                "PASSWORD=;";
-            MySqlConnection connection = new MySqlConnection(MyConString);
-            MySqlCommand command = connection.CreateCommand();
+            MySqlCommand command = DBConnection.Instance.Conn.CreateCommand();
             MySqlDataReader Reader;
             command.CommandText = "select * from specialization_type";
-            connection.Open();
+            DBConnection.Instance.Conn.Open();
             Reader = command.ExecuteReader();
             int licznik = 0;
             while (Reader.Read())
@@ -52,7 +48,7 @@ namespace ProjektBD
                 licznik++;
                 Grid1.Children.Add(nowy);
             }
-            connection.Close();
+            DBConnection.Instance.Conn.Close();
             
         }
     }

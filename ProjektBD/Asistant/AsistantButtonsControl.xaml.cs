@@ -81,5 +81,11 @@ namespace ProjektBD.Asistant
             addToPanelWithTracking(schedule);
         }
 
+        public void DeleteItemsAddedToGrid()
+        {
+            MonitorDelete();
+        }
+
+
     }
 }

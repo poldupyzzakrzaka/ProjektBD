@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
+using ProjektBD.Database;
 
 namespace ProjektBD
 {
@@ -38,15 +39,10 @@ namespace ProjektBD
         {
             if (name.Length > 0 && password.Length > 0)
             {
-                string MyConString = "SERVER=localhost;" +
-                "DATABASE=projektBD;" +
-                "UID=root;" +
-                "PASSWORD=;";
-                MySqlConnection connection = new MySqlConnection(MyConString);
-                MySqlCommand command = connection.CreateCommand();
+                MySqlCommand command = DBConnection.Instance.Conn.CreateCommand();
                 MySqlDataReader Reader;
                 command.CommandText = "select p.level, u.uid, u.name, u.surname from users u, privilages p where p.uid = u.uid and u.login = \"" + textBoxLogin.Text + "\" and u.password = \"" + textBoxPassword.Password + "\"";
-                connection.Open();
+                DBConnection.Instance.Conn.Open();
                 Reader = command.ExecuteReader();
                 if(Reader.Read())
                 {
@@ -55,7 +51,7 @@ namespace ProjektBD
                     userName = Reader.GetString(2);
                     userSurname = Reader.GetString(3);
                 }
-                connection.Close();
+                DBConnection.Instance.Conn.Close();
 
                 Visibility = Visibility.Collapsed;
 
@@ -76,6 +72,7 @@ namespace ProjektBD
             userName = "";
             userSurname = "";
             Visibility = Visibility.Visible;
+            ((MainWindow)Application.Current.MainWindow).asistantButtonsControl1.DeleteItemsAddedToGrid();
             LoggedInEvent(this, LoggedInArgs);
         }
 

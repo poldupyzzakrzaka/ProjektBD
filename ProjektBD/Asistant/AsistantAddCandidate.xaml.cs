@@ -19,8 +19,6 @@ namespace ProjektBD.Asistant
     /// </summary>
     public partial class AsistantAddCandidate : UserControl
     {
-        byte[] array2;
-
         public AsistantAddCandidate()
         {
             InitializeComponent();
