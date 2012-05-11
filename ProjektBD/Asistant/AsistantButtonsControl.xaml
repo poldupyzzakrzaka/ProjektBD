@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="ProjektBD.Asistant.AsistantButtonsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="197" d:DesignWidth="200">
+    <Grid>
+        <StackPanel>
+            <Button Content="Prowadz dane kandydata" HorizontalAlignment="Stretch" Name="buttonAddCandidate" VerticalAlignment="Stretch" Height="23" Margin="0,5" Click="buttonAddCandidate_Click" />
+            <Button Content="Modyfikuj dane kandydata" Height="23" Name="buttonModifyCandidate" Margin="0,5" Click="buttonModifyCandidate_Click" />
+            <Button Content="Terminarz" Height="23" Name="buttonSchedule" Margin="0,5" Click="buttonSchedule_Click" />
+            <Button Content="Usun kandydata" Height="23" Name="buttonDeleteCandidate" Margin="0,5" Click="buttonDeleteCandidate_Click" />
+        </StackPanel>
+    </Grid>
+</UserControl>
