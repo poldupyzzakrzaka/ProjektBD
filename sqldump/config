@@ -1,0 +1,10 @@
+#Configuration file
+
+[General]
+
+user = root
+password = 
+dbname = projektBD
+sqlbin = C:/Program Files/MySQL/MySQL Server 5.5/bin/
+path_dest = backup.sql
+host = localhost

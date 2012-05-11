@@ -41,7 +41,7 @@ namespace ProjektBD
             {
                 MySqlCommand command = DBConnection.Instance.Conn.CreateCommand();
                 MySqlDataReader Reader;
-                command.CommandText = "select p.level, u.uid, u.name, u.surname from users u, privilages p where p.uid = u.uid and u.login = \"" + textBoxLogin.Text + "\" and u.password = \"" + textBoxPassword.Password + "\"";
+                command.CommandText = "select p.level, u.id, u.name, u.surname from users u, privilages p where p.uid = u.id and u.login = \"" + textBoxLogin.Text + "\" and u.password = \"" + textBoxPassword.Password + "\"";
                 DBConnection.Instance.Conn.Open();
                 Reader = command.ExecuteReader();
                 if(Reader.Read())
