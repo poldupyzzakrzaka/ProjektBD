@@ -28,27 +28,34 @@ namespace ProjektBD.Executive
             MySqlCommand command = DBConnection.Instance.Conn.CreateCommand();
             MySqlDataReader Reader;
             command.CommandText = "select * from specialization_type";
-            DBConnection.Instance.Conn.Open();
-            Reader = command.ExecuteReader();
-            int licznik = 0;
-            while (Reader.Read())
+            try
             {
-                if (licznik % 3 == 0)
+                DBConnection.Instance.Conn.Open();
+                Reader = command.ExecuteReader();
+                int licznik = 0;
+                while (Reader.Read())
                 {
-                    GridLengthConverter myGridLengthConverter = new GridLengthConverter();
-                    GridLength gl1 = (GridLength)myGridLengthConverter.ConvertFromString("30*");
-                    Grid1.RowDefinitions.Add(new RowDefinition() { Height = gl1 });
-                }
+                    if (licznik % 3 == 0)
+                    {
+                        GridLengthConverter myGridLengthConverter = new GridLengthConverter();
+                        GridLength gl1 = (GridLength)myGridLengthConverter.ConvertFromString("30*");
+                        Grid1.RowDefinitions.Add(new RowDefinition() { Height = gl1 });
+                    }
 
-                int id = Reader.GetInt32(0);
-                string name = Reader.GetString(1);
-                CheckBox nowy = new CheckBox() { Content = name, Name = name + id.ToString() };
-                Grid.SetColumn(nowy, licznik%3);
-                Grid.SetRow(nowy, licznik/3);
-                licznik++;
-                Grid1.Children.Add(nowy);
+                    int id = Reader.GetInt32(0);
+                    string name = Reader.GetString(1);
+                    CheckBox nowy = new CheckBox() { Content = name, Name = name + id.ToString() };
+                    Grid.SetColumn(nowy, licznik % 3);
+                    Grid.SetRow(nowy, licznik / 3);
+                    licznik++;
+                    Grid1.Children.Add(nowy);
+                }
+                DBConnection.Instance.Conn.Close();
             }
-            DBConnection.Instance.Conn.Close();
+            catch (MySqlException e)
+            {
+                MessageBox.Show("blad sql");
+            }
             
         }
 

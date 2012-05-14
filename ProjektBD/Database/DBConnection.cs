@@ -39,8 +39,14 @@ namespace ProjektBD.Database
                                  "DATABASE=" + database + ";" +
                                  "UID=" + user + ";" +
                                  "PASSWORD=" + password + ";";
-
-            conn = new MySqlConnection(MyConString);
+            try
+            {
+                conn = new MySqlConnection(MyConString);
+            }
+            catch (MySqlException e)
+            {
+                System.Windows.MessageBox.Show("nie ma polaczenia z baza, cos zjebane, zobacz czy na pewno odpaliles mysql ;d");
+            }
         }
 
     }
