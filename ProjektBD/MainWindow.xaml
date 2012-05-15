@@ -15,7 +15,7 @@
             <ColumnDefinition Width="238" />
             <ColumnDefinition Width="1676*" />
         </Grid.ColumnDefinitions>
-        <Grid Grid.ColumnSpan="1" Grid.Column="1" Grid.RowSpan="4" Name="GridPanelFunctions" Visibility="Collapsed" VerticalAlignment="Top">
+        <Grid Grid.ColumnSpan="1" Grid.Column="1" Grid.RowSpan="4" Name="GridPanelFunctions" Visibility="Collapsed" VerticalAlignment="Stretch">
         </Grid>
         <ProjectControls:LoginControl x:Name="LoginControl1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" LoggedInEvent="LoginControl1_LoggedInEvent" MinWidth="350" MinHeight="150" Grid.Column="0" FlowDirection="LeftToRight" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="4"></ProjectControls:LoginControl>
         <StackPanel Name="stackPanelLoginInfo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
