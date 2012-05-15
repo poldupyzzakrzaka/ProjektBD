@@ -45,7 +45,7 @@ namespace ProjektBD.Database
             }
             catch (MySqlException e)
             {
-                System.Windows.MessageBox.Show("nie ma polaczenia z baza, cos zjebane, zobacz czy na pewno odpaliles mysql ;d");
+                System.Windows.MessageBox.Show(e.ToString());
             }
         }
 

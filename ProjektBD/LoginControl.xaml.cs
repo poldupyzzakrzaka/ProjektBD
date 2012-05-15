@@ -74,7 +74,7 @@ namespace ProjektBD
                 }
                 catch (MySqlException e)
                 {
-                    System.Windows.MessageBox.Show("Brak polaczenia z baza danych");
+                    MessageBox.Show(e.ToString());
                 }
             }
             else

@@ -34,6 +34,8 @@ namespace ProjektBD.Executive
             if (gridDisplay.Children.Count > 0)
                 gridDisplay.Children.Clear();
             ExecutiveAddNewRecruitment addRec = new ExecutiveAddNewRecruitment();
+            addRec.VerticalAlignment = VerticalAlignment.Center;
+            addRec.HorizontalAlignment = HorizontalAlignment.Center;
             gridDisplay.Children.Add(addRec);
         }
 
