@@ -11,6 +11,15 @@
             <Label Content="Hasło" Name="labelPassword" />
             <PasswordBox HorizontalAlignment="Stretch" Name="textBoxPassword" VerticalAlignment="Top" Password="haslo1" Grid.ColumnSpan="2" Margin="0,0,0,5" />
             <Button Content="Zaloguj" Height="Auto" HorizontalAlignment="Stretch" Name="buttonLoginConfirm" VerticalAlignment="Top" Width="Auto" Click="buttonLoginConfirm_Click" Grid.ColumnSpan="2" />
+            <CheckBox Content="zaloguj sie bez laczenia z baza" Height="16" Name="checkBoxWithoutSQL" Checked="checkBoxWithoutSQL_Checked" Unchecked="checkBoxWithoutSQL_Checked"/>
+            <ComboBox Height="23" Name="comboBoxChooseJob" Width="Auto" Visibility="Collapsed">
+                <ComboBoxItem Content="Gość" DataContext="{Binding}" />
+                <ComboBoxItem Content="Asystentka" />
+                <ComboBoxItem Content="Kierownik" IsSelected="True" />
+                <ComboBoxItem Content="Specjalista" />
+                <ComboBoxItem Content="Administrator" />
+                <ComboBoxItem Content="Deweloper" />
+            </ComboBox>
         </StackPanel>
     </Grid>
 </UserControl>

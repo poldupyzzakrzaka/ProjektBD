@@ -30,7 +30,7 @@ namespace ProjektBD.Asistant
             GetDepartmentList();
         }
 
-        private string Name { get { return textBoxName.Text; } }
+        private new string Name { get { return textBoxName.Text; } }
         private string Surname { get { return textBoxSurname.Text; } }
         private string Pesel { get { return textBoxPesel.Text; } }
         private string City { get { return textBoxCity.Text; } }
@@ -77,9 +77,9 @@ namespace ProjektBD.Asistant
                 DBConnection.Instance.Conn.Close();
                 ResultInfo("Dodano pomyslnie");
             }
-            catch (Exception e)
+            catch (MySqlException e)
             {
-                ResultInfo("Wystapil blad");
+                ResultInfo(e.ToString());
             }
         }
 

@@ -37,26 +37,45 @@ namespace ProjektBD
 
         public void LogIn(String name, String password)
         {
-            if (name.Length > 0 && password.Length > 0)
+            if ((bool)checkBoxWithoutSQL.IsChecked)
             {
-                MySqlCommand command = DBConnection.Instance.Conn.CreateCommand();
-                MySqlDataReader Reader;
-                command.CommandText = "select p.level, u.id, u.name, u.surname from users u, privilages p where p.uid = u.id and u.login = \"" + textBoxLogin.Text + "\" and u.password = \"" + textBoxPassword.Password + "\"";
-                DBConnection.Instance.Conn.Open();
-                Reader = command.ExecuteReader();
-                if(Reader.Read())
-                {
-                    userId = Reader.GetInt32(0);
-                    userLevel = Reader.GetInt32(1);
-                    userName = Reader.GetString(2);
-                    userSurname = Reader.GetString(3);
-                }
-                DBConnection.Instance.Conn.Close();
+                userLevel = comboBoxChooseJob.SelectedIndex;
+                userId = 66;
+                userName = (String)((ComboBoxItem)comboBoxChooseJob.SelectedValue).Content;
 
                 Visibility = Visibility.Collapsed;
 
                 LoggedInEventArgs LoggedInArgs = new LoggedInEventArgs(userId, userLevel, userName, userSurname);
                 LoggedInEvent(this, LoggedInArgs);
+            }
+            else
+            if (name.Length > 0 && password.Length > 0)
+            {
+                try
+                {
+                    MySqlCommand command = DBConnection.Instance.Conn.CreateCommand();
+                    MySqlDataReader Reader;
+                    command.CommandText = "select p.level, u.id, u.name, u.surname from users u, privilages p where p.uid = u.id and u.login = \"" + textBoxLogin.Text + "\" and u.password = \"" + textBoxPassword.Password + "\"";
+                    DBConnection.Instance.Conn.Open();
+                    Reader = command.ExecuteReader();
+                    if (Reader.Read())
+                    {
+                        userId = Reader.GetInt32(0);
+                        userLevel = Reader.GetInt32(1);
+                        userName = Reader.GetString(2);
+                        userSurname = Reader.GetString(3);
+                    }
+                    DBConnection.Instance.Conn.Close();
+
+                    Visibility = Visibility.Collapsed;
+
+                    LoggedInEventArgs LoggedInArgs = new LoggedInEventArgs(userId, userLevel, userName, userSurname);
+                    LoggedInEvent(this, LoggedInArgs);
+                }
+                catch (MySqlException e)
+                {
+                    MessageBox.Show(e.ToString());
+                }
             }
             else
             {
@@ -90,6 +109,19 @@ namespace ProjektBD
             {
                 buttonLoginConfirm_Click(sender, e);
             }
+        }
+
+        private void checkBoxWithoutSQL_Checked(object sender, RoutedEventArgs e)
+        {
+            if (comboBoxChooseJob.IsVisible)
+            {
+                comboBoxChooseJob.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                comboBoxChooseJob.Visibility = Visibility.Visible;
+            }
+            
         }
     }
 

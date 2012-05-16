@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.5.23, for Win32 (x86)
 --
--- Host: localhost    Database: projektBD
+-- Host: localhost    Database: ProjektBD
 -- ------------------------------------------------------
 -- Server version	5.5.23
 
@@ -16,6 +16,14 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Current Database: `ProjektBD`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `projektbd` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `ProjektBD`;
+
+--
 -- Table structure for table `can_documents`
 --
 
@@ -24,10 +32,11 @@ DROP TABLE IF EXISTS `can_documents`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `can_documents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cid` int(11) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `file_location` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `cid` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `file_location` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -57,7 +66,8 @@ CREATE TABLE `can_test` (
   `description` varchar(255) NOT NULL,
   `test_complited` char(1) DEFAULT NULL,
   `date_accepted` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -79,7 +89,7 @@ DROP TABLE IF EXISTS `candidates`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `candidates` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `did` int(11) DEFAULT NULL,
+  `rid` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
   `surname` varchar(45) NOT NULL,
   `city` varchar(45) NOT NULL,
@@ -89,8 +99,9 @@ CREATE TABLE `candidates` (
   `skills` varchar(255) NOT NULL,
   `experience` varchar(255) DEFAULT NULL,
   `courses` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,7 +124,8 @@ CREATE TABLE `departments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `department` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `department_UNIQUE` (`department`)
+  UNIQUE KEY `department_UNIQUE` (`department`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -136,8 +148,11 @@ DROP TABLE IF EXISTS `privilages`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `privilages` (
   `uid` int(11) NOT NULL,
-  `level` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `level` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +161,7 @@ CREATE TABLE `privilages` (
 
 LOCK TABLES `privilages` WRITE;
 /*!40000 ALTER TABLE `privilages` DISABLE KEYS */;
-INSERT INTO `privilages` VALUES (1,1),(2,2);
+INSERT INTO `privilages` VALUES (1,1,1),(2,2,2);
 /*!40000 ALTER TABLE `privilages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,8 +174,11 @@ DROP TABLE IF EXISTS `recruitment_specialization_test_types`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `recruitment_specialization_test_types` (
   `rid` int(11) NOT NULL,
-  `spid` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `spid` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,6 +187,7 @@ CREATE TABLE `recruitment_specialization_test_types` (
 
 LOCK TABLES `recruitment_specialization_test_types` WRITE;
 /*!40000 ALTER TABLE `recruitment_specialization_test_types` DISABLE KEYS */;
+INSERT INTO `recruitment_specialization_test_types` VALUES (5,2,1),(5,3,2);
 /*!40000 ALTER TABLE `recruitment_specialization_test_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,10 +202,13 @@ CREATE TABLE `recruitments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `decription` varchar(255) NOT NULL,
-  `department` varchar(255) NOT NULL,
+  `department` int(11) NOT NULL,
   `needed_ppl` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `department` (`id`),
+  CONSTRAINT `department` FOREIGN KEY (`id`) REFERENCES `departments` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -195,6 +217,7 @@ CREATE TABLE `recruitments` (
 
 LOCK TABLES `recruitments` WRITE;
 /*!40000 ALTER TABLE `recruitments` DISABLE KEYS */;
+INSERT INTO `recruitments` VALUES (5,'przykladowa nazwa','opis',3,4);
 /*!40000 ALTER TABLE `recruitments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,8 +231,9 @@ DROP TABLE IF EXISTS `specialization_type`;
 CREATE TABLE `specialization_type` (
   `spid` int(11) NOT NULL AUTO_INCREMENT,
   `name_of_subject` varchar(50) NOT NULL,
-  PRIMARY KEY (`spid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`spid`),
+  UNIQUE KEY `spid_UNIQUE` (`spid`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -218,6 +242,7 @@ CREATE TABLE `specialization_type` (
 
 LOCK TABLES `specialization_type` WRITE;
 /*!40000 ALTER TABLE `specialization_type` DISABLE KEYS */;
+INSERT INTO `specialization_type` VALUES (1,'cpp'),(2,'c#'),(3,'java'),(4,'c');
 /*!40000 ALTER TABLE `specialization_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -232,8 +257,10 @@ CREATE TABLE `user_specializations` (
   `uid` int(11) NOT NULL,
   `spid` int(11) NOT NULL,
   `degree` varchar(45) NOT NULL,
-  PRIMARY KEY (`spid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -242,7 +269,7 @@ CREATE TABLE `user_specializations` (
 
 LOCK TABLES `user_specializations` WRITE;
 /*!40000 ALTER TABLE `user_specializations` DISABLE KEYS */;
-INSERT INTO `user_specializations` VALUES (1,1,'1'),(2,2,'1');
+INSERT INTO `user_specializations` VALUES (1,1,'1',1),(2,2,'1',2);
 /*!40000 ALTER TABLE `user_specializations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -287,4 +314,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-05-11 21:26:40
+-- Dump completed on 2012-05-16  0:11:18

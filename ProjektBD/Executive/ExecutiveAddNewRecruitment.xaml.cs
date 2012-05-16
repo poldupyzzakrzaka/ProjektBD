@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using ProjektBD.Database;
+using System.Collections.ObjectModel;
 
 namespace ProjektBD.Executive
 {
@@ -21,45 +22,103 @@ namespace ProjektBD.Executive
     /// </summary>
     public partial class ExecutiveAddNewRecruitment : UserControl
     {
+        private Dictionary<int, string> dict_departments;
+        public ObservableCollection<BoolStringClass> TheList { get; set; }
+
+        public class BoolStringClass
+        {
+            public string TheText { get; set; }
+            public int TheValue { get; set; }
+            public bool TheChecked { get; set; }
+            public int TheWidth { get; set; }
+        }
+
         public ExecutiveAddNewRecruitment()
         {
             InitializeComponent();
+            dict_departments = new Dictionary<int, string>();
+            GetDepartmentList();
+            TheList = new ObservableCollection<BoolStringClass>();
 
             MySqlCommand command = DBConnection.Instance.Conn.CreateCommand();
             MySqlDataReader Reader;
             command.CommandText = "select * from specialization_type";
-            DBConnection.Instance.Conn.Open();
-            Reader = command.ExecuteReader();
-            int licznik = 0;
-            while (Reader.Read())
+            try
             {
-                if (licznik % 3 == 0)
+                DBConnection.Instance.Conn.Open();
+                Reader = command.ExecuteReader();
+                while (Reader.Read())
                 {
-                    GridLengthConverter myGridLengthConverter = new GridLengthConverter();
-                    GridLength gl1 = (GridLength)myGridLengthConverter.ConvertFromString("30*");
-                    Grid1.RowDefinitions.Add(new RowDefinition() { Height = gl1 });
+                    int id = Reader.GetInt32(0);
+                    string name = Reader.GetString(1);
+                    TheList.Add(new BoolStringClass { TheText = name, TheValue = id, TheChecked = false, TheWidth = (int)listBox1.Width - 10 }); 
                 }
-
-                int id = Reader.GetInt32(0);
-                string name = Reader.GetString(1);
-                CheckBox nowy = new CheckBox() { Content = name, Name = name + id.ToString() };
-                Grid.SetColumn(nowy, licznik%3);
-                Grid.SetRow(nowy, licznik/3);
-                licznik++;
-                Grid1.Children.Add(nowy);
+                this.DataContext = this;
+                DBConnection.Instance.Conn.Close();
             }
-            DBConnection.Instance.Conn.Close();
-            
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void GetDepartmentList()
         {
-            //MySqlConnection connection = new MySqlConnection(MyConString);
-            //MySqlCommand command = connection.CreateCommand();
-            //MySqlDataw
-            //command.CommandText = "select * from specialization_type";
-            //connection.Open();
+            MySqlCommand command = DBConnection.Instance.Conn.CreateCommand();
+            MySqlDataReader Reader;
+            command.CommandText = "SELECT id, department FROM departments";
+            DBConnection.Instance.Conn.Open();
+            Reader = command.ExecuteReader();
+            while (Reader.Read())
+            {
+                int key = Reader.GetInt32(0);
+                string value = Reader.GetString(1);
+                dict_departments.Add(key, value);
+            }
+            ComboBoxDepartments.ItemsSource = dict_departments;
+            ComboBoxDepartments.SelectedValuePath = "Key";
+            ComboBoxDepartments.DisplayMemberPath = "Value";
+            DBConnection.Instance.Conn.Close();
+            ComboBoxDepartments.SelectedIndex = 0;
+        }
 
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            string Query, Query2, Query3;
+            try
+            {
+                int recruitmentId = -1;
+                Query = "INSERT INTO recruitments(id,name,decription,department,needed_ppl) VALUES (null,'" + textBoxName.Text + "','" + textBoxDescription.Text + "'," + ComboBoxDepartments.SelectedValue + ",'" + IntegerUpDownHowManyNeeded.Value + "');";
+                MySqlCommand addUser = new MySqlCommand(Query, DBConnection.Instance.Conn);
+                Query2 = "Select id FROM recruitments WHERE name='" + textBoxName.Text + "' AND department='" + ComboBoxDepartments.SelectedValue + "';";
+                MySqlCommand getRecId = new MySqlCommand(Query2, DBConnection.Instance.Conn);
+
+                DBConnection.Instance.Conn.Open();
+                addUser.ExecuteNonQuery();
+
+                MySqlDataReader Reader = getRecId.ExecuteReader();
+                if (Reader.Read())
+                {
+                    recruitmentId = Reader.GetInt32(0);
+                }
+                Reader.Close();
+
+                for (int i = 0; i < TheList.Count; i++)
+                {
+                    if (TheList.ElementAt<BoolStringClass>(i).TheChecked)
+                    {
+                        Query3 = "INSERT INTO recruitment_specialization_test_types(rid,spid) VALUES ('" + recruitmentId + "','" + TheList.ElementAt<BoolStringClass>(i).TheValue + "');";
+                        MySqlCommand addRecSpecTestTypes = new MySqlCommand(Query3, DBConnection.Instance.Conn);
+                        addRecSpecTestTypes.ExecuteNonQuery();
+                    }
+                }
+
+                DBConnection.Instance.Conn.Close();
+            }
+            catch (MySqlException ee)
+            {
+                MessageBox.Show(ee.ToString());
+            }
         }
     }
 }
