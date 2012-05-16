@@ -30,7 +30,7 @@ def main(argv=None):
         return 1;
     print 'Drop command exectued'
     
-    mysql_import = '\"' + cfg_dict['sqlbin'] + 'mysql.exe' + '\"' + ' ' + '--user=' + cfg_dict['user']  + ' ' + '--host=' + cfg_dict['host'] + ' ' + '--database=' + cfg_dict['dbname'] +' < ' + 'mysqlbackup.sql'
+    mysql_import = '\"' + cfg_dict['sqlbin'] + 'mysql.exe' + '\"' + ' ' + '--user=' + cfg_dict['user']  + ' ' + '--host=' + cfg_dict['host'] + ' ' + '--database=' + cfg_dict['dbname'] +' < ' + cfg_dict['path_dest']
     p = subprocess.Popen(mysql_import, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     p.wait()
     if p.returncode != 0:
