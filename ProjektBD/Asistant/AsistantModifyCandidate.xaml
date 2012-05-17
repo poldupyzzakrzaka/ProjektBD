@@ -5,5 +5,5 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="900">
-    <Grid></Grid>
+    <Grid Name="mainGrid"></Grid>
 </UserControl>

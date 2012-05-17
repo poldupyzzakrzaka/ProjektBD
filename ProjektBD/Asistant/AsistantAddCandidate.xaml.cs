@@ -44,7 +44,8 @@ namespace ProjektBD.Asistant
         {
             MySqlCommand command = DBConnection.Instance.Conn.CreateCommand();
             MySqlDataReader Reader;
-            command.CommandText = "SELECT id, department FROM departments";
+            //pobiera id i nazwy dzialow do ktorych aktualnie trwa rekrutacja
+            command.CommandText = "SELECT r.id, d.department FROM departments As d, recruitments AS r WHERE d.id= r.department";
             DBConnection.Instance.Conn.Open();
             Reader = command.ExecuteReader();
             while (Reader.Read())
@@ -53,6 +54,7 @@ namespace ProjektBD.Asistant
                 string value = Reader.GetString(1);
                 dict_departments.Add(key, value);
             }
+            //wypelnia comboboxa nazwami dzialow
             ComboBoxDepartments.ItemsSource = dict_departments;
             ComboBoxDepartments.SelectedValuePath = "Key";
             ComboBoxDepartments.DisplayMemberPath = "Value";
@@ -61,9 +63,9 @@ namespace ProjektBD.Asistant
 
         private string CreateInsertCommand()
         {
-            int departmentID =(int) ComboBoxDepartments.SelectedValue;
-            return "INSERT INTO candidates(did, name, surname, city, pesel, sex, education, skills, experience, courses) VALUES" +
-                   "(" +departmentID+ ",'" +Name+ "','" +Surname+ "','" +City+ "','" +Pesel+ "','" +Sex+ "','" +Education+ "','" +Skills+ "','" +Experience+ "','" +Courses+ "');";
+            int recruitmentID = (int)ComboBoxDepartments.SelectedValue;
+            return "INSERT INTO candidates(rid, name, surname, city, pesel, sex, education, skills, experience, courses) VALUES" +
+                   "(" + recruitmentID + ",'" + Name + "','" + Surname + "','" + City + "','" + Pesel + "','" + Sex + "','" + Education + "','" + Skills + "','" + Experience + "','" + Courses + "');";
         }
 
         private void InsertData()
