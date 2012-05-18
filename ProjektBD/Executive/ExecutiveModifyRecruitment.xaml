@@ -3,9 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
-    <Grid>
-        <Label Content="exec mod recru" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Name="label1" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" d:DesignHeight="314" d:DesignWidth="628" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid VerticalAlignment="Center" Height="285" Width="603">
+        <Label Content="Nazwa:" Name="label1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,46,0,0" />
+        <TextBox Name="textBoxName" Margin="66,46,0,0" Text="" HorizontalAlignment="Left" Width="247" VerticalAlignment="Top" Height="26" VerticalContentAlignment="Center" />
+        <Label Content="Opis:" Height="28" Name="label2" Margin="12,78,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" />
+        <TextBox Name="textBoxDescription" Margin="66,78,0,0" Text="" AcceptsReturn="True" AcceptsTab="True" MaxLength="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="247" Height="88" />
+        <Label Content="Dział pracy:" Height="28" Name="label3" Margin="0,80,191,0" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        <Label Content="Ilość miejsc na stanowisko" Height="28" Name="labelHowManyNeeded" Margin="0,112,105,0" HorizontalAlignment="Right" Width="157" VerticalAlignment="Top" />
+        <xctk:IntegerUpDown HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,112,20,0" Name="IntegerUpDownHowManyNeeded" CultureInfo="pl-PL" Height="28" Width="71" Text="1" Minimum="1" DefaultValue="1"></xctk:IntegerUpDown>
+        <Label Content="Wymagane typy testów:" Name="label4" Margin="12,172,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <ComboBox Height="26" HorizontalAlignment="Right" Margin="0,80,20,0" Name="ComboBoxDepartments" VerticalAlignment="Top" Width="153" />
+        <Button Content="Dodaj" Name="buttonAdd" HorizontalAlignment="Right" MinWidth="70" Click="buttonAdd_Click" Margin="0,196,20,0" VerticalAlignment="Top" />
+        <ListBox Height="Auto" HorizontalAlignment="Left" Margin="12,196,0,0" Name="listBox1" VerticalAlignment="Top" ItemsSource="{Binding TheList}" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Width="301" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch" BorderThickness="0" Focusable="False" IsTextSearchEnabled="False">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Name="CheckBoxZone" Content="{Binding TheText}"    Tag="{Binding TheValue}" IsChecked="{Binding TheChecked}" Width="{Binding TheWidth}" HorizontalAlignment="Left" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ComboBox Height="23" HorizontalAlignment="Left" Name="comboBoxRecruitments" VerticalAlignment="Top" Width="120" Margin="12,12,0,0" SelectionChanged="comboBoxRecruitments_SelectionChanged" />
     </Grid>
+    
+    
+    
 </UserControl>
