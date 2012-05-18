@@ -81,6 +81,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Asistant\AsistantCandidateData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Asistant\AsistantSchedule.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -124,6 +128,9 @@
     </Compile>
     <Compile Include="Asistant\AsistantModifyCandidate.xaml.cs">
       <DependentUpon>AsistantModifyCandidate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Asistant\AsistantCandidateData.xaml.cs">
+      <DependentUpon>AsistantCandidateData.xaml</DependentUpon>
     </Compile>
     <Compile Include="Asistant\AsistantSchedule.xaml.cs">
       <DependentUpon>AsistantSchedule.xaml</DependentUpon>
