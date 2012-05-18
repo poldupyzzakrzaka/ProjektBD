@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="ProjektBD.Asistant.AsistantCandidateData"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:wpfext="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="663" d:DesignWidth="938">
+    <Grid>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="82,15,0,0" Name="textBoxName" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="388,15,0,0" Name="textBoxSurname" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="82,58,0,0" Name="textBoxCity" VerticalAlignment="Top" Width="120" />
+        <wpfext:MaskedTextBox Mask="00000000000" Height="23" HorizontalAlignment="Left" Margin="388,53,0,0" Name="maskedTextBoxPesel" VerticalAlignment="Top" Width="Auto" />
+        <ComboBox ItemsSource="{Binding}" Height="23" HorizontalAlignment="Left" Margin="700,15,0,0" Name="comboBoxSex" VerticalAlignment="Top" Width="120" />
+        <TextBox AcceptsReturn="True" Height="219" HorizontalAlignment="Right" Margin="0,404,20,0" Name="textBoxSkills" TextWrapping="Wrap" VerticalAlignment="Top" Width="390" />
+        <Label Content="Imie" Height="28" HorizontalAlignment="Left" Margin="12,10,0,0" Name="label1" VerticalAlignment="Top" />
+        <Label Content="Nazwisko" Height="28" HorizontalAlignment="Left" Margin="266,10,0,0" Name="label2" VerticalAlignment="Top" />
+        <Label Content="Miasto" Height="28" HorizontalAlignment="Left" Margin="10,58,0,0" Name="label3" VerticalAlignment="Top" />
+        <Label Content="Pesel" Height="28" HorizontalAlignment="Left" Margin="278,48,0,0" Name="label4" VerticalAlignment="Top" />
+        <Label Content="Płeć" Height="28" HorizontalAlignment="Left" Margin="605,10,0,0" Name="label5" VerticalAlignment="Top" />
+        <Label Content="Wykształcenie" Height="28" HorizontalAlignment="Left" Margin="10,103,0,0" Name="label6" VerticalAlignment="Top" />
+        <Label Content="Umiejętności" Height="28" HorizontalAlignment="Left" Margin="430,370,0,0" Name="label7" VerticalAlignment="Top" />
+        <Label Content="Doświadczenie" Height="28" HorizontalAlignment="Left" Margin="419,103,0,0" Name="label8" VerticalAlignment="Top" />
+        <Label Content="Przebyte kursy" Height="28" HorizontalAlignment="Left" Margin="12,370,0,0" Name="label9" VerticalAlignment="Top" />
+        <TextBox AcceptsReturn="True" Height="216" HorizontalAlignment="Right" Margin="0,137,20,0" Name="textBoxExperience" TextWrapping="Wrap" VerticalAlignment="Top" Width="390" />
+        <TextBox AcceptsReturn="True" Height="219" HorizontalAlignment="Left" Margin="20,404,0,0" Name="textBoxCourses" TextWrapping="Wrap" VerticalAlignment="Top" Width="390" />
+        <TextBox AcceptsReturn="True" Height="216" HorizontalAlignment="Left" Margin="20,137,0,0" Name="textBoxEducation" TextWrapping="Wrap" VerticalAlignment="Top" Width="392" />
+        <Label Content="Dział" Height="28" HorizontalAlignment="Left" Margin="546,48,0,0" Name="label11" VerticalAlignment="Top" />
+        <ComboBox Height="26" HorizontalAlignment="Left" Margin="605,53,0,0" Name="ComboBoxDepartments" VerticalAlignment="Top" Width="215" />
+    </Grid>
+</UserControl>

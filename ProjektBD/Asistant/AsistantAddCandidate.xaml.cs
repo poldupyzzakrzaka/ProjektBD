@@ -22,23 +22,15 @@ namespace ProjektBD.Asistant
     public partial class AsistantAddCandidate : UserControl
     {
         private Dictionary<int, string> dict_departments;
-
+        private AsistantCandidateData canData;
         public AsistantAddCandidate()
         {
             InitializeComponent();
             dict_departments = new Dictionary<int, string>(); 
+            canData = new AsistantCandidateData();
             GetDepartmentList();
+            gridCanData.Children.Add(canData);
         }
-
-        private new string Name { get { return textBoxName.Text; } }
-        private string Surname { get { return textBoxSurname.Text; } }
-        private string Pesel { get { return textBoxPesel.Text; } }
-        private string City { get { return textBoxCity.Text; } }
-        private string Sex { get { return textBoxSex.Text; } }
-        private string Education { get { return textBoxEducation.Text; } }
-        private string Skills { get { return textBoxSkills.Text; } }
-        private string Experience { get { return textBoxExperience.Text; } }
-        private string Courses { get { return textBoxCourses.Text; } }
 
         private void GetDepartmentList()
         {
@@ -55,17 +47,19 @@ namespace ProjektBD.Asistant
                 dict_departments.Add(key, value);
             }
             //wypelnia comboboxa nazwami dzialow
-            ComboBoxDepartments.ItemsSource = dict_departments;
-            ComboBoxDepartments.SelectedValuePath = "Key";
-            ComboBoxDepartments.DisplayMemberPath = "Value";
+            canData.GetComboBoxDepart().ItemsSource = dict_departments;
+            canData.GetComboBoxDepart().SelectedValuePath = "Key";
+            canData.GetComboBoxDepart().DisplayMemberPath = "Value";
             DBConnection.Instance.Conn.Close();
         }
 
         private string CreateInsertCommand()
         {
-            int recruitmentID = (int)ComboBoxDepartments.SelectedValue;
+            int recruitmentID = (int)canData.GetComboBoxDepart().SelectedValue;
             return "INSERT INTO candidates(rid, name, surname, city, pesel, sex, education, skills, experience, courses) VALUES" +
-                   "(" + recruitmentID + ",'" + Name + "','" + Surname + "','" + City + "','" + Pesel + "','" + Sex + "','" + Education + "','" + Skills + "','" + Experience + "','" + Courses + "');";
+                   "(" + recruitmentID + ",'" + canData.Name + "','" + canData.Surname + "','" + canData.City + "','" +
+                   canData.Pesel + "','" + canData.Sex + "','" + canData.Education + "','" + canData.Skills + "','" +
+                   canData.Experience + "','" + canData.Courses + "');";
         }
 
         private void InsertData()

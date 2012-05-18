@@ -8,29 +8,10 @@
              Height="Auto" Width="Auto">
     <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
         <Grid Height="Auto">
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="82,55,0,0" Name="textBoxName" VerticalAlignment="Top" Width="120" />
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="388,55,0,0" Name="textBoxSurname" VerticalAlignment="Top" Width="120" />
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="82,98,0,0" Name="textBoxCity" VerticalAlignment="Top" Width="120" />
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="388,93,0,0" Name="textBoxPesel" VerticalAlignment="Top" Width="120" />
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="700,55,0,0" Name="textBoxSex" VerticalAlignment="Top" Width="120" />
-            <TextBox Height="219" HorizontalAlignment="Right" Margin="0,444,20,0" Name="textBoxSkills" VerticalAlignment="Top" Width="390" AcceptsReturn="True" TextWrapping="Wrap" />
-            <Label Content="Imie" Height="28" HorizontalAlignment="Left" Margin="12,50,0,0" Name="label1" VerticalAlignment="Top" />
-            <Label Content="Nazwisko" Height="28" HorizontalAlignment="Left" Margin="266,50,0,0" Name="label2" VerticalAlignment="Top" />
-            <Label Content="Miasto" Height="28" HorizontalAlignment="Left" Margin="10,98,0,0" Name="label3" VerticalAlignment="Top" />
-            <Label Content="Pesel" Height="28" HorizontalAlignment="Left" Margin="278,88,0,0" Name="label4" VerticalAlignment="Top" />
-            <Label Content="Płeć" Height="28" HorizontalAlignment="Left" Margin="605,50,0,0" Name="label5" VerticalAlignment="Top" />
-            <Label Content="Wykształcenie" Height="28" HorizontalAlignment="Left" Margin="10,143,0,0" Name="label6" VerticalAlignment="Top" />
-            <Label Content="Umiejętności" Height="28" HorizontalAlignment="Left" Margin="430,410,0,0" Name="label7" VerticalAlignment="Top" />
-            <Label Content="Doświadczenie" Height="28" HorizontalAlignment="Left" Margin="419,143,0,0" Name="label8" VerticalAlignment="Top" />
-            <Label Content="Przebyte kursy" Height="28" HorizontalAlignment="Left" Margin="12,410,0,0" Name="label9" VerticalAlignment="Top" />
-            <TextBox Height="216" HorizontalAlignment="Right" Margin="0,177,20,0" Name="textBoxExperience" VerticalAlignment="Top" Width="390" AcceptsReturn="True" TextWrapping="Wrap" />
-            <TextBox Height="219" HorizontalAlignment="Left" Margin="20,444,0,0" Name="textBoxCourses" VerticalAlignment="Top" Width="390" AcceptsReturn="True" TextWrapping="Wrap" />
             <Label Content="Rejestracja kandydata" Height="27" HorizontalAlignment="Left" Margin="0,12,0,0" Name="label10" VerticalAlignment="Top" Width="259" HorizontalContentAlignment="Center" />
-            <TextBox Height="216" HorizontalAlignment="Left" Margin="20,177,0,0" Name="textBoxEducation" VerticalAlignment="Top" Width="392" AcceptsReturn="True" TextWrapping="Wrap" />
             <Button Content="Dodaj kandydata" Height="28" HorizontalAlignment="Center" Margin="0,683,0,0" Name="buttonAddCandidate" VerticalAlignment="Top" Width="235" Click="buttonAddCandidate_Click" />
-            <Label Content="Dział" Height="28" HorizontalAlignment="Left" Margin="546,88,0,0" Name="label11" VerticalAlignment="Top" />
-            <ComboBox Height="26" HorizontalAlignment="Left" Margin="605,93,0,0" Name="ComboBoxDepartments" VerticalAlignment="Top" Width="215" />
             <StackPanel Height="28" HorizontalAlignment="Left" Margin="350,10,0,0" Name="stackPanelInfo" VerticalAlignment="Top" Width="196" />
+            <Grid Height="600" HorizontalAlignment="Left" Margin="28,72,0,0" Name="gridCanData" VerticalAlignment="Top" Width="829" />
         </Grid>
     </ScrollViewer>
 </UserControl>
