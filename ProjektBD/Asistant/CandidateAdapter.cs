@@ -25,6 +25,11 @@ namespace ProjektBD.Asistant
             return ID;
         }
 
+        public void SearchCommand()
+        {
+            searchCommand = "SELECT id, name, surname, city, pesel, sex FROM candidates";
+        }
+
         public void SearchCommand(string name, string surname, string city, string sex, string pesel)
         {
             searchCommand = "SELECT id, name, surname, city, pesel, sex FROM candidates WHERE";

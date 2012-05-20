@@ -69,6 +69,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Asistant\AsistantAddDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Asistant\AsistantAddDocumentPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Asistant\AsistantButtonsControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -119,6 +127,12 @@
     </Page>
     <Compile Include="Asistant\AsistantAddCandidate.xaml.cs">
       <DependentUpon>AsistantAddCandidate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Asistant\AsistantAddDocument.xaml.cs">
+      <DependentUpon>AsistantAddDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Asistant\AsistantAddDocumentPanel.xaml.cs">
+      <DependentUpon>AsistantAddDocumentPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Asistant\AsistantButtonsControl.xaml.cs">
       <DependentUpon>AsistantButtonsControl.xaml</DependentUpon>

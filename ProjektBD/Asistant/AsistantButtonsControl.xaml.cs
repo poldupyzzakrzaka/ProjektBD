@@ -52,12 +52,12 @@ namespace ProjektBD.Asistant
             objRef = obj;
         }
 
-        private void buttonSchedule_Click(object sender, RoutedEventArgs e)
+        private void buttonAddDocument_Click(object sender, RoutedEventArgs e)
         {
             if (gridDisplay.Children.Count > 0)
                 gridDisplay.Children.Clear();
-            AsistantSchedule schedule = new AsistantSchedule();
-            gridDisplay.Children.Add(schedule);
+            AsistantAddDocument addDocument = new AsistantAddDocument();
+            gridDisplay.Children.Add(addDocument);
         }
 
         private void buttonDeleteCandidate_Click(object sender, RoutedEventArgs e)

@@ -9,7 +9,7 @@
         <StackPanel>
             <Button Content="Prowadz dane kandydata" HorizontalAlignment="Stretch" Name="buttonAddCandidate" VerticalAlignment="Stretch" Height="23" Margin="0,5" Click="buttonAddCandidate_Click" />
             <Button Content="Modyfikuj dane kandydata" Height="23" Name="buttonModifyCandidate" Margin="0,5" Click="buttonModifyCandidate_Click" />
-            <Button Content="Terminarz" Height="23" Name="buttonSchedule" Margin="0,5" Click="buttonSchedule_Click" />
+            <Button Content="Dodaj dokument" Height="23" Name="buttonAddDocument" Margin="0,5" Click="buttonAddDocument_Click" />
             <Button Content="Usun kandydata" Height="23" Name="buttonDeleteCandidate" Margin="0,5" Click="buttonDeleteCandidate_Click" />
         </StackPanel>
     </Grid>
