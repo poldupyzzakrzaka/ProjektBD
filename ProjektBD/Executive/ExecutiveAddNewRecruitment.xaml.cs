@@ -37,7 +37,13 @@ namespace ProjektBD.Executive
         {
             InitializeComponent();
             dict_departments = new Dictionary<int, string>();
+
             GetDepartmentList();
+            GetSpecializations();
+        }
+
+        private void GetSpecializations()
+        {
             TheList = new ObservableCollection<BoolStringClass>();
 
             MySqlCommand command = DBConnection.Instance.Conn.CreateCommand();
@@ -51,7 +57,7 @@ namespace ProjektBD.Executive
                 {
                     int id = Reader.GetInt32(0);
                     string name = Reader.GetString(1);
-                    TheList.Add(new BoolStringClass { TheText = name, TheValue = id, TheChecked = false, TheWidth = (int)listBox1.Width - 10 }); 
+                    TheList.Add(new BoolStringClass { TheText = name, TheValue = id, TheChecked = false, TheWidth = (int)listBox1.Width - 10 });
                 }
                 this.DataContext = this;
                 DBConnection.Instance.Conn.Close();
