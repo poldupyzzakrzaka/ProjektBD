@@ -85,6 +85,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Asistant\AsistantDeleteDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Asistant\AsistantModifyCandidate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -96,6 +100,10 @@
     <Page Include="Asistant\AsistantSchedule.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Asistant\AsistantSearchByCandidate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Asistant\AsistantSearchCandidate.xaml">
       <SubType>Designer</SubType>
@@ -140,6 +148,9 @@
     <Compile Include="Asistant\AsistantDeleteCandidate.xaml.cs">
       <DependentUpon>AsistantDeleteCandidate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Asistant\AsistantDeleteDocument.xaml.cs">
+      <DependentUpon>AsistantDeleteDocument.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Asistant\AsistantModifyCandidate.xaml.cs">
       <DependentUpon>AsistantModifyCandidate.xaml</DependentUpon>
     </Compile>
@@ -148,6 +159,9 @@
     </Compile>
     <Compile Include="Asistant\AsistantSchedule.xaml.cs">
       <DependentUpon>AsistantSchedule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Asistant\AsistantSearchByCandidate.xaml.cs">
+      <DependentUpon>AsistantSearchByCandidate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Asistant\AsistantSearchCandidate.xaml.cs">
       <DependentUpon>AsistantSearchCandidate.xaml</DependentUpon>

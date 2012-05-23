@@ -6,6 +6,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="328" d:DesignWidth="618">
     <StackPanel Name="mainPanel">
-        <DataGrid CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="True" SelectionMode="Single" CanUserReorderColumns="False" IsReadOnly="True" AutoGenerateColumns="True" Height="Auto" HorizontalAlignment="Left" Margin="20,20,0,0" Name="dataGridCanList" VerticalAlignment="Top" Width="Auto" SelectionChanged="OnSelectionChanged" />
+        <DataGrid CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="True" SelectionMode="Single" CanUserReorderColumns="False" IsReadOnly="True" AutoGenerateColumns="True" Height="Auto" HorizontalAlignment="Center" Margin="20,20,0,0" Name="dataGridCanList" VerticalAlignment="Top" Width="Auto" SelectionChanged="OnSelectionChanged" />
     </StackPanel>
 </UserControl>

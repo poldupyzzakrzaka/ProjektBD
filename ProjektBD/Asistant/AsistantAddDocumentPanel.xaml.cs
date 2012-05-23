@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using Microsoft.Win32;
 using System.IO;
-using System.ComponentModel;
-using System.Configuration;
 using MySql.Data.MySqlClient;
 using ProjektBD.Database;
 
@@ -26,6 +14,9 @@ namespace ProjektBD.Asistant
     {
         private string fileLocation;
         private int ID;
+        private string name;
+        private string surname;
+
         public AsistantAddDocumentPanel()
         {
             InitializeComponent();
@@ -34,7 +25,9 @@ namespace ProjektBD.Asistant
         public void UpdateData(int id, string name, string surname)
         {
             ID = id;
-            labelCan.Content = "Kandydat " + "  " + name + surname;
+            this.name = name;
+            this.surname = surname;
+            labelCan.Content = "Kandydat " + name + " " + surname;
         }
 
         private string searchFile()
@@ -42,7 +35,7 @@ namespace ProjektBD.Asistant
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.InitialDirectory = "c:\\";
             dlg.Filter = "Text files (*.txt)|*.txt|Microsoft WORD (*.doc;*.docx)|*.doc;*.docx|PDF (*.pdf)|*.pdf|All files (*.*)|*.*";
-            dlg.FilterIndex = 2;
+            dlg.FilterIndex = 3;
             dlg.RestoreDirectory = true;
             dlg.Multiselect = false;
 
@@ -74,14 +67,15 @@ namespace ProjektBD.Asistant
 
         private void buttonSendFile_Click(object sender, RoutedEventArgs e)
         {
-            string destPath = ConfigurationManager.AppSettings["docPath"];
-            if (System.IO.Directory.Exists(destPath))
-            {
-                string fname = Path.GetFileName(fileLocation);
-                string destFile = Path.Combine(destPath, fname);
-                File.Copy(fileLocation, destFile);
-                addToDatabase(ID, destFile);
-            }
+            ResultInfo("git jest balblablablalbal");
+            //string destPath = ConfigurationManager.AppSettings["docPath"];
+            //if (System.IO.Directory.Exists(destPath))
+            //{
+            //    string fname = Path.GetFileName(fileLocation);
+            //    string destFile = Path.Combine(destPath, fname);
+            //    File.Copy(fileLocation, destFile);
+            //  //addToDatabase(ID, destFile);
+            //}
         }
 
         private void addToDatabase(int ID, string destFile)
@@ -93,15 +87,26 @@ namespace ProjektBD.Asistant
                 MySqlCommand addDoc = new MySqlCommand(Query, DBConnection.Instance.Conn);
                 DBConnection.Instance.Conn.Open();
                 addDoc.ExecuteNonQuery();
+                string result = "Dodano plik : " + Path.GetFileName(destFile) + " powiazany z " + name + " " + surname;
+                ResultInfo(result);
             }
             catch (MySqlException e)
             {
-                //ResultInfo(e.ToString());
+                ResultInfo(e.ToString());
             }
             finally
             {
                 DBConnection.Instance.Conn.Close();
             }
+        }
+
+        public void ResultInfo(string result)
+        {
+            Label resultLabel = new Label();
+            resultLabel.Content = result;
+            resultLabel.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+            resultLabel.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+            ((StackPanel)this.Parent).Children.Add(resultLabel);
         }
 
     }

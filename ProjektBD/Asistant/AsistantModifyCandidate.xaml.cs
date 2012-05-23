@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using ProjektBD.Database;
 using MySql.Data.MySqlClient;
+using ProjektBD.Database;
 
 namespace ProjektBD.Asistant
 {
@@ -187,7 +177,7 @@ namespace ProjektBD.Asistant
         }
 
     }
-    class Candidate
+    internal class Candidate
     {
         string name;
         string surname;
@@ -199,7 +189,7 @@ namespace ProjektBD.Asistant
         string experience;
         string courses;
 
-        public new string Name { get { return name; } set { name = value; } }
+        public string Name { get { return name; } set { name = value; } }
         public string Surname { get { return surname; } set { surname = value; } }
         public string Pesel { get { return pesel; } set { pesel = value; } }
         public string City { get { return city; } set { city = value; } }
