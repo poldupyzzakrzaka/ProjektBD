@@ -65,5 +65,12 @@ namespace ProjektBD.Asistant
             gridDisplay.Children.Add(delDoc);
         }
 
+        private void buttonModifyDocument_Click(object sender, RoutedEventArgs e)
+        {
+            if (gridDisplay.Children.Count > 0)
+                gridDisplay.Children.Clear();
+            AsistantModifyDocument modDoc = new AsistantModifyDocument();
+            gridDisplay.Children.Add(modDoc);
+        }
     }
 }

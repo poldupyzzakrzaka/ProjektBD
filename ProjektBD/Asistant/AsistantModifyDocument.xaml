@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="ProjektBD.Asistant.AsistantModifyDocument"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="309" d:DesignWidth="633">
+    <StackPanel Name="mainPanel">
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="10,10,0,0" Name="comboBoxSearchBy" VerticalAlignment="Top" Width="164" SelectionChanged="comboBoxSearchBy_SelectionChanged">
+            <ComboBoxItem Content="Szukaj wedlug : " Focusable="false" IsEnabled="false" IsSelected="True">
+                <ComboBoxItem.Tag>
+                    <sys:Int32>0</sys:Int32>
+                </ComboBoxItem.Tag>
+            </ComboBoxItem>
+            <ComboBoxItem Content="Kandydata">
+                <ComboBoxItem.Tag>
+                    <sys:Int32>1</sys:Int32>
+                </ComboBoxItem.Tag>
+            </ComboBoxItem>
+        </ComboBox>
+    </StackPanel>
+</UserControl>

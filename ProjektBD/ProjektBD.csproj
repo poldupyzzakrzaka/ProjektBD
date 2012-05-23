@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.IdentityModel.Selectors" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -86,14 +87,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Asistant\AsistantDeleteDocument.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Asistant\AsistantModifyCandidate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Asistant\AsistantCandidateData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Asistant\AsistantModifyDocument.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -156,6 +161,9 @@
     </Compile>
     <Compile Include="Asistant\AsistantCandidateData.xaml.cs">
       <DependentUpon>AsistantCandidateData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Asistant\AsistantModifyDocument.xaml.cs">
+      <DependentUpon>AsistantModifyDocument.xaml</DependentUpon>
     </Compile>
     <Compile Include="Asistant\AsistantSchedule.xaml.cs">
       <DependentUpon>AsistantSchedule.xaml</DependentUpon>

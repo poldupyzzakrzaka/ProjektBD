@@ -3,26 +3,27 @@
 namespace ProjektBD.Asistant
 {
     /// <summary>
-    /// Interaction logic for AsistantDeleteDocument.xaml
+    /// Interaction logic for AsistantModifyDocument.xaml
     /// </summary>
-    public partial class AsistantDeleteDocument : UserControl
+    public partial class AsistantModifyDocument : UserControl
     {
-        public AsistantDeleteDocument()
+        public AsistantModifyDocument()
         {
             InitializeComponent();
         }
+
 
         private void searchBy()
         {
             //(int) ((ComboBoxItem)comboBoxSearchBy.SelectedItem).Tag;
             //(string) ((ComboBoxItem)comboBoxSearchBy.SelectedItem).Content;
-            switch ((int) ((ComboBoxItem)comboBoxSearchBy.SelectedItem).Tag)
+            switch ((int)((ComboBoxItem)comboBoxSearchBy.SelectedItem).Tag)
             {
                 case 0:
                     // NIE WYBRANO
                     break;
                 case 1:
-                    AsistantSearchByCandidate sCan = new AsistantSearchByCandidate(1);
+                    AsistantSearchByCandidate sCan = new AsistantSearchByCandidate(2);
                     mainPanel.Children.Add(sCan);
                     break;
                 default:
@@ -37,4 +38,5 @@ namespace ProjektBD.Asistant
                 searchBy();
         }
     }
+
 }

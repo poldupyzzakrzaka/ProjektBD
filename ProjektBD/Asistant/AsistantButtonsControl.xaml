@@ -11,6 +11,7 @@
             <Button Content="Modyfikuj dane kandydata" Height="23" Name="buttonModifyCandidate" Margin="0,5" Click="buttonModifyCandidate_Click" />
             <Button Content="Dodaj dokument" Height="23" Name="buttonAddDocument" Margin="0,5" Click="buttonAddDocument_Click" />
             <Button Content="Usun dokument" Height="23" Name="buttonDeleteDocument" Margin="0,5" Click="buttonDeleteDocument_Click" />
+            <Button Content="Modyfikuj dokument" Height="23" Name="buttonModifyDocument" Margin="0,5" Click="buttonModifyDocument_Click" />
             <Button Content="Usun kandydata" Height="23" Name="buttonDeleteCandidate" Margin="0,5" Click="buttonDeleteCandidate_Click" />
         </StackPanel>
     </Grid>
